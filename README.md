@@ -1,103 +1,50 @@
-# pdbx2df
+# pyuniprot
+`pyuniprot` parses a Uniprot txt file given a Uniprot ID into a python object. All information is made programmatically accessible when programming in python, the most used programming language in bioinformatics.  
 
-Many file formats are about different ways of integrating structured data blocks into a single file in that those blocks are related to each other in some way. The `PDBx` or `mmCIF` file format organizes structural biology data into `categories` and each category contains a structured data block which includes several `attributes`, and each attribute contains the same number of elements within a category. Those characteristics make a PDBx/mmCIF file naturally to be representable as a `Python dict` of `Pandas DataFrames`.
+Through the python object, mostly a dictionary of different categories and each category is wrapped as a `dataclass` so that inside attributes are easy to access through dot notations. Convenient functions will be provided for some common usage.
 
-Our `pdbx2df` package primarily parses a PDBx file (mmCIF file: pdb_id.cif) into a Python dict with PDBx category names as keys and contents belonging to the category as the corresponding values. Each category content is parsed as a Pandas DataFrame whose columns are the attribute names. On the other hand, we can write a dict of Pandas DataFrame(s) into a PDBx format in which the dict key(s) are used as category names, the DataFrame column names as attribute names, and the DataFrame row(s) as the corresponding record(s).
-
-The old style `PDB` file format is not very well structured compared to the new PDBx file format. However, we can make `pdbx2df` support parsing a PDB file (pdb_id.pdb) into a Python dict of Pandas DataFrames similarly, although many 'blocks' need more post processing. As such, currently only the lines starting with `ATOM`, `HETATM`, and `TER` are read into a category named `_atom_site` which corresponds to the same category in a mmCIF file. And for NMR models, all `ATOM`, `HETATM`, and `TER` lines are read into a single DataFrame but atoms in a NMR model has the same value in the `nmr_model` column which is determined by the number in the corresponding `MODEL` line.
-
-## Requirements
-
-- Pandas (>=1.0)
+Contributions are highly welcomed!
 
 ## Install
 
 ```bash
-pip install pdbx2df
+pip install pyuniprot
 ```
 
-## Usage examples
+## Usage
 
-1. If you want to read the 3D coordinates for PDB `1vii` into a Pandas DataFrame, and you have downloaded the `1vii.cif` file to your current working directory `./`, you can:
+1. Read a local file `./P01116.txt` or download from UniprotKB and save to the current directory
 
 ```python
-from pdbx2df import read_pdbx
-pdbx_file = './1vii.cif'
-pdbx = read_pdbx(pdbx_file, category_names=['_atom_site'])
-atoms_df = pdbx['_atom_site']
-# 'atoms_df' is a Pandas DataFrame containing the '_atom_site' category which has the detailed 3D coordinates for each atom.
+from pyuniprot import Uniprot
+uniprot_id = "P01116"
+uniprot = Uniprot(
+    uniprot_id, local_download_dir='./', save_txt=True)
+)  # If './P01116.txt' exists, pyuniprot reads it directly; if not pyuniprot downloads it from UniprotKB first and (optionally) saves it to './'
+print(uniprot.category_lines)  # It prints out all the information for a Uniprot ID that UniprotKB has for it.
 ```
 
-2. If you want to read the FASTA sequence of `1vii`, you can:
-
+2. Access category information
 ```python
-from pdbx2df import read_pdbx
-pdbx_file = './1vii.cif'
-pdbx = read_pdbx(pdbx_file, category_names=['_entity_poly'])
-fasta_df = pdbx['_entity_poly']
-fasta = fasta_df['pdbx_seq_one_letter_code_can'].to_list()[0]  # 1vii only has one sequence
-# fasta == 'MLSDEDFKAVFGMTRSAFANLPLWKQQNLKKEKGLF'
+print(uniprot.category_lines['AC'])
+# result: AC(primary_accession='P01116;', secondary_accessions=['A8K8Z5', 'B0LPF9', 'P01118', 'Q96D10'])
 ```
 
-3. You can read them simutanously:
+Currently, most information can only be accessed from the `category_lines` python dictionary. In this dictionary, the keys are just the two-letter codes used by UniprotKB.
 
-```python
-from pdbx2df import read_pdbx
-pdbx_file = './1vii.cif'
-pdbx = read_pdbx(pdbx_file, category_names=['_entity_poly', '_atom_site'])
-atoms_df = pdbx['_atom_site']
-fasta_df = pdbx['_entity_poly']
-```
+They are (in my understanding):
 
-Putting a list of category names to `category_names`, you will get them if they are in the PDBx file.
+- `ID`: UniprotKB identifers
+- `AC`: accession numbers
+- `DT`: entry brief history
+- `DE`: protein names/descriptions
+- `GN`: gene name (by HGNC?)
+- `OS`,`OC`,`OX` (grouped as `OSCX` in pyuniprot): organism names
+- `RN`,`RP`,`RC`,`RX`,`RA`,`RT`,`RL` (grouped as `RNPCXATL` in pyuniprot): references
+- `CC`: activity comments
+- `DR`: database cross references
+- `PE`: protein evidence level
+- `KW`: protein keywords
+- `FT`: protein feature tables
+- `SQ`: protein sequence
 
-4. You can parse the whole file by using 'all':
-
-```python
-from pdbx2df import read_pdbx
-pdbx_file = './1vii.cif'
-pdbx = read_pdbx(pdbx_file, category_names=['all'])
-atoms_df = pdbx['_atom_site']
-fasta_df = pdbx['_entity_poly']
-# and more
-```
-
-5. Write back to a PDBx file:
-
-```python
-from pdbx2df import read_pdbx, write_pdbx
-pdbx_file = './1vii.cif'
-pdbx = read_pdbx(pdbx_file, category_names=['all'])
-keep = ['_atom_site', '_entity_poly']  # suppose we only want to keep the FASTA sequence and 3D coordinates.
-pdbx_keep = {k: v for k, v in pdbx.items() if k in keep}
-write_pdbx(pdbx_keep, '1vii_save.cif')
-```
-
-6. For reading the atomic information in a PDB file `1vii.pdb`:
-
-```python
-from pdbx2df import read_pdb
-pdb_file = './1vii.pdb'
-pdb = read_pdb(pdb_file, category_names=['_atom_site'])  # We use '_atom_site' here to mirror the mmCIF format and it is the default
-atoms_df = pdb['_atom_site']
-# 'atoms_df' is a Pandas DataFrame containing the '_atom_site' category which has the detailed 3D coordinates for each atom.
-```
-
-7. Suppose we only want to keep the protein residue atoms in `5u8l.pdb`:
-
-```python
-from pdbx2df import read_pdb, write_pdb
-pdb_file = './5u8l.pdb'
-pdb = read_pdb(pdb_file, category_names=['_atom_site'])
-df = pdb['_atom_site']
-df = df[df.record_name == 'ATOM']
-pdb['_atom_site'] = df
-write_pdb(pdb, '5u8l_nohetero.pdb')
-# The '5u8l_nohetero.pdb' file contains only the protein residues.
-```
-
-The `read_pdb` function can parse PDB files generated by `Chimera` by default. You can set `allow_chimera=False` in its input to fully follow the standard PDB format (although I don't see a use case).
-
-The `write_pdb` function can write PDB files that can be parsed by `Chimera` by setting `allow_chimera=True`. `allow_chimera=False` by default so that the output PDB files follow the standard PDB format strictly.
-
-Since our package can read from and write to PDB files containing NMR models, it is straightforward to read and write trajectory files saved as PDB files by molecular dynamics software, if different frames are surrounded by pairs of `MODEL` and `ENDMDL` lines.
