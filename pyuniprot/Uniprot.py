@@ -192,6 +192,7 @@ class Uniprot:
         if txt_file.exists():
             self._uniprot_txt_file = txt_file
         self._category_lines: dict[str, UNIPROT] | None = None
+        self._get_category_lines()
 
     @property
     def uniprot_id(self):

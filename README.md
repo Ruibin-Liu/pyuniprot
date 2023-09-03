@@ -1,5 +1,5 @@
 # pyuniprot
-`pyuniprot` parses a Uniprot txt file given a Uniprot ID into a python object. All information is made programmatically accessible when programming in python, the most used programming language in bioinformatics.  
+`pyuniprot` parses a Uniprot txt file given a Uniprot ID into a python object. All information is made programmatically accessible when programming in python, the most used programming language in bioinformatics.
 
 Through the python object, mostly a dictionary of different categories and each category is wrapped as a `dataclass` so that inside attributes are easy to access through dot notations. Convenient functions will be provided for some common usage.
 
@@ -47,4 +47,3 @@ They are (in my understanding):
 - `KW`: protein keywords
 - `FT`: protein feature tables
 - `SQ`: protein sequence
-
