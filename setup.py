@@ -1,6 +1,6 @@
 import os
 
-__package_name__ = "pyuniprot"
+__package_name__ = "pyuniprotkb"
 __author__ = "Ruibin Liu"
 
 from setuptools import find_packages, setup  # type: ignore

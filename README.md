@@ -8,7 +8,7 @@ Contributions are highly welcomed!
 ## Install
 
 ```bash
-pip install pyuniprot
+pip install pyuniprotkb
 ```
 
 ## Usage
