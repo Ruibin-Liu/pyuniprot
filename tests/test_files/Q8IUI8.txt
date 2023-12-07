@@ -1,0 +1,314 @@
+ID   CRLF3_HUMAN             Reviewed;         442 AA.
+AC   Q8IUI8; A6NJF3; B2R8C3; Q2MLY7; Q9UNI3; Q9Y6M8;
+DT   29-MAY-2007, integrated into UniProtKB/Swiss-Prot.
+DT   01-MAR-2004, sequence version 2.
+DT   08-NOV-2023, entry version 165.
+DE   RecName: Full=Cytokine receptor-like factor 3;
+DE   AltName: Full=Cytokine receptor-like molecule 9;
+DE            Short=CREME-9;
+DE   AltName: Full=Cytokine receptor-related protein 4;
+DE   AltName: Full=Type I cytokine receptor-like factor p48;
+GN   Name=CRLF3; Synonyms=CREME9, CRLM9, CYTOR4, P48;
+OS   Homo sapiens (Human).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia;
+OC   Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae;
+OC   Homo.
+OX   NCBI_TaxID=9606;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 2), ALTERNATIVE SPLICING, FUNCTION,
+RP   SUBCELLULAR LOCATION, AND TISSUE SPECIFICITY.
+RC   TISSUE=Erythroleukemia;
+RX   PubMed=19427400; DOI=10.1016/j.biocel.2009.04.022;
+RA   Yang F., Xu Y.P., Li J., Duan S.S., Fu Y.J., Zhang Y., Zhao Y., Qiao W.T.,
+RA   Chen Q.M., Geng Y.Q., Che C.Y., Cao Y.L., Wang Y., Zhang L., Long L.,
+RA   He J., Cui Q.C., Chen S.C., Wang S.H., Liu L.;
+RT   "Cloning and characterization of a novel intracellular protein p48.2 that
+RT   negatively regulates cell cycle progression.";
+RL   Int. J. Biochem. Cell Biol. 41:2240-2250(2009).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1).
+RA   Farrah T., Adams R., Kho C.-J., Yamagiwa T.M., Madden K.L., Whitmore T.,
+RA   Jelmberg A., Pownder T., Lofton-Day C.E., Lok S.;
+RT   "An extended gap penalty scheme for profiles results in the discovery of a
+RT   novel cytokine receptor related transcript in an EST database.";
+RL   Submitted (JAN-1999) to the EMBL/GenBank/DDBJ databases.
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 2).
+RC   TISSUE=Liver;
+RA   Maeda M., Nomura H.;
+RT   "Cloning of a novel cytokine receptor-like molecule.";
+RL   Submitted (JAN-1999) to the EMBL/GenBank/DDBJ databases.
+RN   [4]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1).
+RC   TISSUE=Synovial cell;
+RX   PubMed=14702039; DOI=10.1038/ng1285;
+RA   Ota T., Suzuki Y., Nishikawa T., Otsuki T., Sugiyama T., Irie R.,
+RA   Wakamatsu A., Hayashi K., Sato H., Nagai K., Kimura K., Makita H.,
+RA   Sekine M., Obayashi M., Nishi T., Shibahara T., Tanaka T., Ishii S.,
+RA   Yamamoto J., Saito K., Kawai Y., Isono Y., Nakamura Y., Nagahari K.,
+RA   Murakami K., Yasuda T., Iwayanagi T., Wagatsuma M., Shiratori A., Sudo H.,
+RA   Hosoiri T., Kaku Y., Kodaira H., Kondo H., Sugawara M., Takahashi M.,
+RA   Kanda K., Yokoi T., Furuya T., Kikkawa E., Omura Y., Abe K., Kamihara K.,
+RA   Katsuta N., Sato K., Tanikawa M., Yamazaki M., Ninomiya K., Ishibashi T.,
+RA   Yamashita H., Murakawa K., Fujimori K., Tanai H., Kimata M., Watanabe M.,
+RA   Hiraoka S., Chiba Y., Ishida S., Ono Y., Takiguchi S., Watanabe S.,
+RA   Yosida M., Hotuta T., Kusano J., Kanehori K., Takahashi-Fujii A., Hara H.,
+RA   Tanase T.-O., Nomura Y., Togiya S., Komai F., Hara R., Takeuchi K.,
+RA   Arita M., Imose N., Musashino K., Yuuki H., Oshima A., Sasaki N.,
+RA   Aotsuka S., Yoshikawa Y., Matsunawa H., Ichihara T., Shiohata N., Sano S.,
+RA   Moriya S., Momiyama H., Satoh N., Takami S., Terashima Y., Suzuki O.,
+RA   Nakagawa S., Senoh A., Mizoguchi H., Goto Y., Shimizu F., Wakebe H.,
+RA   Hishigaki H., Watanabe T., Sugiyama A., Takemoto M., Kawakami B.,
+RA   Yamazaki M., Watanabe K., Kumagai A., Itakura S., Fukuzumi Y., Fujimori Y.,
+RA   Komiyama M., Tashiro H., Tanigami A., Fujiwara T., Ono T., Yamada K.,
+RA   Fujii Y., Ozaki K., Hirao M., Ohmori Y., Kawabata A., Hikiji T.,
+RA   Kobatake N., Inagaki H., Ikema Y., Okamoto S., Okitani R., Kawakami T.,
+RA   Noguchi S., Itoh T., Shigeta K., Senba T., Matsumura K., Nakajima Y.,
+RA   Mizuno T., Morinaga M., Sasaki M., Togashi T., Oyama M., Hata H.,
+RA   Watanabe M., Komatsu T., Mizushima-Sugano J., Satoh T., Shirai Y.,
+RA   Takahashi Y., Nakagawa K., Okumura K., Nagase T., Nomura N., Kikuchi H.,
+RA   Masuho Y., Yamashita R., Nakai K., Yada T., Nakamura Y., Ohara O.,
+RA   Isogai T., Sugano S.;
+RT   "Complete sequencing and characterization of 21,243 full-length human
+RT   cDNAs.";
+RL   Nat. Genet. 36:40-45(2004).
+RN   [5]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RX   PubMed=16625196; DOI=10.1038/nature04689;
+RA   Zody M.C., Garber M., Adams D.J., Sharpe T., Harrow J., Lupski J.R.,
+RA   Nicholson C., Searle S.M., Wilming L., Young S.K., Abouelleil A.,
+RA   Allen N.R., Bi W., Bloom T., Borowsky M.L., Bugalter B.E., Butler J.,
+RA   Chang J.L., Chen C.-K., Cook A., Corum B., Cuomo C.A., de Jong P.J.,
+RA   DeCaprio D., Dewar K., FitzGerald M., Gilbert J., Gibson R., Gnerre S.,
+RA   Goldstein S., Grafham D.V., Grocock R., Hafez N., Hagopian D.S., Hart E.,
+RA   Norman C.H., Humphray S., Jaffe D.B., Jones M., Kamal M., Khodiyar V.K.,
+RA   LaButti K., Laird G., Lehoczky J., Liu X., Lokyitsang T., Loveland J.,
+RA   Lui A., Macdonald P., Major J.E., Matthews L., Mauceli E., McCarroll S.A.,
+RA   Mihalev A.H., Mudge J., Nguyen C., Nicol R., O'Leary S.B., Osoegawa K.,
+RA   Schwartz D.C., Shaw-Smith C., Stankiewicz P., Steward C., Swarbreck D.,
+RA   Venkataraman V., Whittaker C.A., Yang X., Zimmer A.R., Bradley A.,
+RA   Hubbard T., Birren B.W., Rogers J., Lander E.S., Nusbaum C.;
+RT   "DNA sequence of human chromosome 17 and analysis of rearrangement in the
+RT   human lineage.";
+RL   Nature 440:1045-1049(2006).
+RN   [6]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1).
+RC   TISSUE=B-cell;
+RX   PubMed=15489334; DOI=10.1101/gr.2596504;
+RG   The MGC Project Team;
+RT   "The status, quality, and expansion of the NIH full-length cDNA project:
+RT   the Mammalian Gene Collection (MGC).";
+RL   Genome Res. 14:2121-2127(2004).
+RN   [7]
+RP   TISSUE SPECIFICITY.
+RX   PubMed=16865251;
+RA   Dang C., Gottschling M., Manning K., O'Currain E., Schneider S., Sterry W.,
+RA   Stockfleth E., Nindl I.;
+RT   "Identification of dysregulated genes in cutaneous squamous cell
+RT   carcinoma.";
+RL   Oncol. Rep. 16:513-519(2006).
+RN   [8]
+RP   IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS].
+RX   PubMed=21269460; DOI=10.1186/1752-0509-5-17;
+RA   Burkard T.R., Planyavsky M., Kaupe I., Breitwieser F.P., Buerckstuemmer T.,
+RA   Bennett K.L., Superti-Furga G., Colinge J.;
+RT   "Initial characterization of the human central proteome.";
+RL   BMC Syst. Biol. 5:17-17(2011).
+RN   [9]
+RP   ACETYLATION [LARGE SCALE ANALYSIS] AT MET-1 (ISOFORM 2), AND IDENTIFICATION
+RP   BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS].
+RX   PubMed=22814378; DOI=10.1073/pnas.1210303109;
+RA   Van Damme P., Lasa M., Polevoda B., Gazquez C., Elosegui-Artola A.,
+RA   Kim D.S., De Juan-Pardo E., Demeyer K., Hole K., Larrea E., Timmerman E.,
+RA   Prieto J., Arnesen T., Sherman F., Gevaert K., Aldabe R.;
+RT   "N-terminal acetylome analyses and functional insights of the N-terminal
+RT   acetyltransferase NatB.";
+RL   Proc. Natl. Acad. Sci. U.S.A. 109:12449-12454(2012).
+CC   -!- FUNCTION: May play a role in the negative regulation of cell cycle
+CC       progression. {ECO:0000269|PubMed:19427400}.
+CC   -!- INTERACTION:
+CC       Q8IUI8; P54253: ATXN1; NbExp=6; IntAct=EBI-2872414, EBI-930964;
+CC       Q8IUI8; P54252: ATXN3; NbExp=3; IntAct=EBI-2872414, EBI-946046;
+CC       Q8IUI8; P46379-2: BAG6; NbExp=3; IntAct=EBI-2872414, EBI-10988864;
+CC       Q8IUI8; Q8IUI8: CRLF3; NbExp=4; IntAct=EBI-2872414, EBI-2872414;
+CC       Q8IUI8; Q96D03: DDIT4L; NbExp=3; IntAct=EBI-2872414, EBI-742054;
+CC       Q8IUI8; G5E9A7: DMWD; NbExp=3; IntAct=EBI-2872414, EBI-10976677;
+CC       Q8IUI8; P21333-2: FLNA; NbExp=3; IntAct=EBI-2872414, EBI-9641086;
+CC       Q8IUI8; P14136: GFAP; NbExp=3; IntAct=EBI-2872414, EBI-744302;
+CC       Q8IUI8; P04792: HSPB1; NbExp=3; IntAct=EBI-2872414, EBI-352682;
+CC       Q8IUI8; Q9UMF0: ICAM5; NbExp=3; IntAct=EBI-2872414, EBI-6398041;
+CC       Q8IUI8; Q8WXH2: JPH3; NbExp=3; IntAct=EBI-2872414, EBI-1055254;
+CC       Q8IUI8; Q4G0X4: KCTD21; NbExp=3; IntAct=EBI-2872414, EBI-11976683;
+CC       Q8IUI8; O60333-2: KIF1B; NbExp=3; IntAct=EBI-2872414, EBI-10975473;
+CC       Q8IUI8; O14901: KLF11; NbExp=3; IntAct=EBI-2872414, EBI-948266;
+CC       Q8IUI8; Q96JM7-2: L3MBTL3; NbExp=3; IntAct=EBI-2872414, EBI-11985629;
+CC       Q8IUI8; Q8TCE9: LGALS14; NbExp=6; IntAct=EBI-2872414, EBI-10274069;
+CC       Q8IUI8; P31153: MAT2A; NbExp=3; IntAct=EBI-2872414, EBI-1050743;
+CC       Q8IUI8; Q8TDC0: MYOZ3; NbExp=3; IntAct=EBI-2872414, EBI-5662487;
+CC       Q8IUI8; P19404: NDUFV2; NbExp=3; IntAct=EBI-2872414, EBI-713665;
+CC       Q8IUI8; P07196: NEFL; NbExp=3; IntAct=EBI-2872414, EBI-475646;
+CC       Q8IUI8; P29474: NOS3; NbExp=3; IntAct=EBI-2872414, EBI-1391623;
+CC       Q8IUI8; O14832: PHYH; NbExp=3; IntAct=EBI-2872414, EBI-721853;
+CC       Q8IUI8; Q8N2W9: PIAS4; NbExp=3; IntAct=EBI-2872414, EBI-473160;
+CC       Q8IUI8; D3DTS7: PMP22; NbExp=3; IntAct=EBI-2872414, EBI-25882629;
+CC       Q8IUI8; P60891: PRPS1; NbExp=3; IntAct=EBI-2872414, EBI-749195;
+CC       Q8IUI8; Q96PK6: RBM14; NbExp=3; IntAct=EBI-2872414, EBI-954272;
+CC       Q8IUI8; P37840: SNCA; NbExp=3; IntAct=EBI-2872414, EBI-985879;
+CC       Q8IUI8; P14678-2: SNRPB; NbExp=3; IntAct=EBI-2872414, EBI-372475;
+CC       Q8IUI8; Q7Z699: SPRED1; NbExp=3; IntAct=EBI-2872414, EBI-5235340;
+CC       Q8IUI8; Q13148: TARDBP; NbExp=6; IntAct=EBI-2872414, EBI-372899;
+CC       Q8IUI8; Q86WV8: TSC1; NbExp=3; IntAct=EBI-2872414, EBI-12806590;
+CC       Q8IUI8; Q9BRG1: VPS25; NbExp=12; IntAct=EBI-2872414, EBI-741945;
+CC       Q8IUI8; Q6P2D0: ZFP1; NbExp=3; IntAct=EBI-2872414, EBI-2555749;
+CC   -!- SUBCELLULAR LOCATION: Cytoplasm {ECO:0000269|PubMed:19427400}. Note=The
+CC       EGFP- and MYC-tagged protein has been shown to be cytoplasmic.
+CC       {ECO:0000269|PubMed:19427400}.
+CC   -!- ALTERNATIVE PRODUCTS:
+CC       Event=Alternative splicing; Named isoforms=2;
+CC       Name=1; Synonyms=p48.6;
+CC         IsoId=Q8IUI8-1; Sequence=Displayed;
+CC       Name=2; Synonyms=p48.2;
+CC         IsoId=Q8IUI8-2; Sequence=VSP_044648;
+CC   -!- TISSUE SPECIFICITY: Expressed in several embryonic and adult tissues,
+CC       including adult and fetal brain, liver, spleen and pancreas. Expressed
+CC       in adult, but not fetal kidney. Expressed in skin and squamous cell
+CC       carcinoma (SCC) and in several other cancer types. Also detected in
+CC       lesion actinic keratosis (AK). {ECO:0000269|PubMed:16865251,
+CC       ECO:0000269|PubMed:19427400}.
+CC   -!- SIMILARITY: Belongs to the cytokine receptor-like factor 3 family.
+CC       {ECO:0000305}.
+CC   ---------------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   ---------------------------------------------------------------------------
+DR   EMBL; DQ298450; ABC55264.1; -; mRNA.
+DR   EMBL; AF046059; AAD02422.1; -; mRNA.
+DR   EMBL; AF120151; AAD31758.1; -; mRNA.
+DR   EMBL; AK313315; BAG36120.1; -; mRNA.
+DR   EMBL; AC127024; -; NOT_ANNOTATED_CDS; Genomic_DNA.
+DR   EMBL; BC023567; AAH23567.2; -; mRNA.
+DR   CCDS; CCDS32607.1; -. [Q8IUI8-1]
+DR   RefSeq; NP_057070.3; NM_015986.3. [Q8IUI8-1]
+DR   AlphaFoldDB; Q8IUI8; -.
+DR   SMR; Q8IUI8; -.
+DR   BioGRID; 119511; 38.
+DR   IntAct; Q8IUI8; 48.
+DR   MINT; Q8IUI8; -.
+DR   STRING; 9606.ENSP00000318804; -.
+DR   CarbonylDB; Q8IUI8; -.
+DR   GlyCosmos; Q8IUI8; 1 site, 1 glycan.
+DR   GlyGen; Q8IUI8; 1 site, 1 O-linked glycan (1 site).
+DR   iPTMnet; Q8IUI8; -.
+DR   MetOSite; Q8IUI8; -.
+DR   PhosphoSitePlus; Q8IUI8; -.
+DR   BioMuta; CRLF3; -.
+DR   DMDM; 74762472; -.
+DR   OGP; Q9Y6M8; -.
+DR   EPD; Q8IUI8; -.
+DR   jPOST; Q8IUI8; -.
+DR   MassIVE; Q8IUI8; -.
+DR   MaxQB; Q8IUI8; -.
+DR   PaxDb; 9606-ENSP00000318804; -.
+DR   PeptideAtlas; Q8IUI8; -.
+DR   ProteomicsDB; 70577; -. [Q8IUI8-1]
+DR   Pumba; Q8IUI8; -.
+DR   Antibodypedia; 1925; 146 antibodies from 23 providers.
+DR   DNASU; 51379; -.
+DR   Ensembl; ENST00000324238.7; ENSP00000318804.6; ENSG00000176390.12. [Q8IUI8-1]
+DR   GeneID; 51379; -.
+DR   KEGG; hsa:51379; -.
+DR   MANE-Select; ENST00000324238.7; ENSP00000318804.6; NM_015986.4; NP_057070.3.
+DR   UCSC; uc002hfr.5; human. [Q8IUI8-1]
+DR   AGR; HGNC:17177; -.
+DR   CTD; 51379; -.
+DR   DisGeNET; 51379; -.
+DR   GeneCards; CRLF3; -.
+DR   HGNC; HGNC:17177; CRLF3.
+DR   HPA; ENSG00000176390; Tissue enhanced (lymphoid).
+DR   MIM; 614853; gene.
+DR   neXtProt; NX_Q8IUI8; -.
+DR   OpenTargets; ENSG00000176390; -.
+DR   PharmGKB; PA26884; -.
+DR   VEuPathDB; HostDB:ENSG00000176390; -.
+DR   eggNOG; ENOG502QQI2; Eukaryota.
+DR   GeneTree; ENSGT00940000153469; -.
+DR   HOGENOM; CLU_057983_0_0_1; -.
+DR   InParanoid; Q8IUI8; -.
+DR   OMA; HEWTPGF; -.
+DR   OrthoDB; 5383841at2759; -.
+DR   PhylomeDB; Q8IUI8; -.
+DR   TreeFam; TF328682; -.
+DR   PathwayCommons; Q8IUI8; -.
+DR   SignaLink; Q8IUI8; -.
+DR   BioGRID-ORCS; 51379; 19 hits in 1168 CRISPR screens.
+DR   ChiTaRS; CRLF3; human.
+DR   GeneWiki; CRLF3; -.
+DR   GenomeRNAi; 51379; -.
+DR   Pharos; Q8IUI8; Tbio.
+DR   PRO; PR:Q8IUI8; -.
+DR   Proteomes; UP000005640; Chromosome 17.
+DR   RNAct; Q8IUI8; Protein.
+DR   Bgee; ENSG00000176390; Expressed in trabecular bone tissue and 209 other tissues.
+DR   ExpressionAtlas; Q8IUI8; baseline and differential.
+DR   Genevisible; Q8IUI8; HS.
+DR   GO; GO:0005737; C:cytoplasm; IDA:UniProtKB.
+DR   GO; GO:0005829; C:cytosol; IDA:HPA.
+DR   GO; GO:0005634; C:nucleus; IBA:GO_Central.
+DR   GO; GO:0005886; C:plasma membrane; IDA:HPA.
+DR   GO; GO:0003677; F:DNA binding; IBA:GO_Central.
+DR   GO; GO:0042802; F:identical protein binding; IPI:IntAct.
+DR   GO; GO:0030308; P:negative regulation of cell growth; IDA:UniProtKB.
+DR   GO; GO:2000134; P:negative regulation of G1/S transition of mitotic cell cycle; IMP:UniProtKB.
+DR   GO; GO:0045893; P:positive regulation of DNA-templated transcription; IDA:UniProtKB.
+DR   GO; GO:0046427; P:positive regulation of receptor signaling pathway via JAK-STAT; IDA:UniProtKB.
+DR   GO; GO:0045944; P:positive regulation of transcription by RNA polymerase II; IDA:UniProtKB.
+DR   CDD; cd00063; FN3; 1.
+DR   Gene3D; 2.60.40.10; Immunoglobulins; 1.
+DR   InterPro; IPR003961; FN3_dom.
+DR   InterPro; IPR036116; FN3_sf.
+DR   InterPro; IPR013783; Ig-like_fold.
+DR   SUPFAM; SSF49265; Fibronectin type III; 1.
+DR   PROSITE; PS50853; FN3; 1.
+PE   1: Evidence at protein level;
+KW   Acetylation; Alternative splicing; Coiled coil; Cytoplasm;
+KW   Reference proteome.
+FT   CHAIN           1..442
+FT                   /note="Cytokine receptor-like factor 3"
+FT                   /id="PRO_0000288936"
+FT   DOMAIN          181..274
+FT                   /note="Fibronectin type-III"
+FT                   /evidence="ECO:0000255|PROSITE-ProRule:PRU00316"
+FT   COILED          10..57
+FT                   /evidence="ECO:0000255"
+FT   VAR_SEQ         1..4
+FT                   /note="Missing (in isoform 2)"
+FT                   /evidence="ECO:0000303|PubMed:19427400, ECO:0000303|Ref.3"
+FT                   /id="VSP_044648"
+FT   VARIANT         202
+FT                   /note="V -> M (in dbSNP:rs3764418)"
+FT                   /id="VAR_049180"
+FT   VARIANT         389
+FT                   /note="L -> P (in dbSNP:rs11867457)"
+FT                   /id="VAR_032539"
+FT   CONFLICT        42
+FT                   /note="R -> K (in Ref. 2; AAD02422)"
+FT                   /evidence="ECO:0000305"
+FT   CONFLICT        66
+FT                   /note="L -> V (in Ref. 3; AAD31758)"
+FT                   /evidence="ECO:0000305"
+FT   CONFLICT        189
+FT                   /note="I -> L (in Ref. 1; ABC55264)"
+FT                   /evidence="ECO:0000305"
+FT   MOD_RES         Q8IUI8-2:1
+FT                   /note="N-acetylmethionine"
+FT                   /evidence="ECO:0007744|PubMed:22814378"
+SQ   SEQUENCE   442 AA;  49766 MW;  89F6CACD76397AF8 CRC64;
+     MRGAMELEPE LLLQEARENV EAAQSYRREL GHRLEGLREA RRQIKESASQ TRDVLKQHFN
+     DLKGTLGKLL DERLVTLLQE VDTIEQETIK PLDDCQKLIE HGVNTAEDLV REGEIAMLGG
+     VGEENEKLWS FTKKASHIQL DSLPEVPLLV DVPCLSAQLD DSILNIVKDH IFKHGTVASR
+     PPVQIEELIE KPGGIIVRWC KVDDDFTAQD YRLQFRKCTS NHFEDVYVGS ETEFIVLHID
+     PNVDYQFRVC ARGDGRQEWS PWSVPQIGHS TLVPHEWTAG FEGYSLSSRR NIALRNDSES
+     SGVLYSRAPT YFCGQTLTFR VETVGQPDRR DSIGVCAEKQ DGYDSLQRDQ AVCISTNGAV
+     FVNGKEMTNQ LPAVTSGSTV TFDIEAVTLG TTSNNEGGHF KLRVTISSNN REVVFDWLLD
+     QSCGSLYFGC SFFYPGWKVL VF
+//

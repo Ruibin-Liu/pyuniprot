@@ -40,6 +40,7 @@ def test_get_properties():
     assert uniprot.uniprot_txt_file == Path(
         CFD, "test_files", f"{uniprot.uniprot_id}.txt"
     ), "Uniprot TXT file path not right when existed."
+    os.remove("P36952.txt")
 
 
 def test_get_category_lines():
@@ -53,3 +54,47 @@ def test_get_category_lines():
     assert (
         category_lines["SQ"].length == 393
     ), "P04637 sequence length in SQ not read as integer 393."
+
+
+def test_empty_file():
+    """Test the _get_category_lines function."""
+    uniprot_id = "P30042"
+    uniprot = Uniprot(
+        uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
+    )
+    uniprot._get_category_lines()
+    category_lines = uniprot.category_lines
+    assert category_lines == {}, "P04637 sequence length in SQ not read as integer 393."
+
+
+def test_no_panther():
+    """Test the _get_category_lines function."""
+    uniprot_id = "Q8IUI8"
+    uniprot = Uniprot(
+        uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
+    )
+    uniprot._get_category_lines()
+    category_lines = uniprot.category_lines
+    assert (
+        len(category_lines["DR"].database_references["PANTHER"]) == 0
+    ), "Q8IUI8 has wrong PANTHER,"
+
+
+def test_empty_resid():
+    """Test the _get_category_lines function."""
+    uniprot_id = "Q9NPA5"
+    uniprot = Uniprot(
+        uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
+    )
+    uniprot._get_category_lines()
+    category_lines = uniprot.category_lines
+    assert (
+        category_lines["DR"]
+        .database_references["PDB"][0]
+        .uniprot_res_range[0]
+        .seq_begin
+        == ""
+    ), "Q9NPA5 first PDB resids are not ''."
+
+
+test_empty_resid()

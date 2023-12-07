@@ -2,7 +2,7 @@ ID   SPB5_HUMAN              Reviewed;         375 AA.
 AC   P36952; B2R6Y4; Q6N0B4; Q8WW89;
 DT   01-JUN-1994, integrated into UniProtKB/Swiss-Prot.
 DT   05-MAY-2009, sequence version 2.
-DT   28-JUN-2023, entry version 197.
+DT   08-NOV-2023, entry version 199.
 DE   RecName: Full=Serpin B5;
 DE   AltName: Full=Maspin;
 DE   AltName: Full=Peptidase inhibitor 5;
@@ -194,13 +194,14 @@ DR   EPD; P36952; -.
 DR   jPOST; P36952; -.
 DR   MassIVE; P36952; -.
 DR   MaxQB; P36952; -.
-DR   PaxDb; P36952; -.
+DR   PaxDb; 9606-ENSP00000372221; -.
 DR   PeptideAtlas; P36952; -.
 DR   PRIDE; P36952; -.
 DR   ProteomicsDB; 55240; -. [P36952-1]
 DR   ProteomicsDB; 55241; -. [P36952-2]
+DR   Pumba; P36952; -.
 DR   TopDownProteomics; P36952-1; -. [P36952-1]
-DR   Antibodypedia; 4036; 620 antibodies from 43 providers.
+DR   Antibodypedia; 4036; 599 antibodies from 43 providers.
 DR   DNASU; 5268; -.
 DR   Ensembl; ENST00000382771.9; ENSP00000372221.4; ENSG00000206075.14. [P36952-1]
 DR   Ensembl; ENST00000489441.5; ENSP00000467158.1; ENSG00000206075.14. [P36952-2]
@@ -238,7 +239,7 @@ DR   GenomeRNAi; 5268; -.
 DR   Pharos; P36952; Tbio.
 DR   PRO; PR:P36952; -.
 DR   Proteomes; UP000005640; Chromosome 18.
-DR   RNAct; P36952; protein.
+DR   RNAct; P36952; Protein.
 DR   Bgee; ENSG00000206075; Expressed in skin of abdomen and 95 other tissues.
 DR   ExpressionAtlas; P36952; baseline and differential.
 DR   Genevisible; P36952; HS.
@@ -249,7 +250,6 @@ DR   GO; GO:0016528; C:sarcoplasm; IEA:Ensembl.
 DR   GO; GO:0004867; F:serine-type endopeptidase inhibitor activity; IBA:GO_Central.
 DR   GO; GO:0030198; P:extracellular matrix organization; IEA:Ensembl.
 DR   GO; GO:0002009; P:morphogenesis of an epithelium; IEA:Ensembl.
-DR   GO; GO:0010951; P:negative regulation of endopeptidase activity; IBA:GO_Central.
 DR   GO; GO:0060512; P:prostate gland morphogenesis; IEA:Ensembl.
 DR   GO; GO:0050678; P:regulation of epithelial cell proliferation; IEA:Ensembl.
 DR   CDD; cd02057; serpinB5_maspin; 1.

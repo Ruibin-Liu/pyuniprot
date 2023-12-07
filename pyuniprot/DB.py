@@ -30,7 +30,7 @@ class PANTHER:
 class SeqRange:
     """Store a sequence range record."""
 
-    seq_begein: int | str
+    seq_begin: int | str
     seq_end: int | str
 
 

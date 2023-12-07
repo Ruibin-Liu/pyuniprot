@@ -49,7 +49,7 @@ class EC:
 class DE:
     """Protein names"""
 
-    recommended_name: str
+    recommended_name: str | None
     ec_record: EC | None
     alt_names: list[str] | None
     contains: str | None
@@ -291,7 +291,7 @@ class Uniprot:
 
         line: str = u_file.readline()
         references: list = []
-        while line[0:2] != "//":
+        while line and line[0:2] != "//":
             if line.startswith("ID"):
                 items = line[2:-1].split()
                 entry_name = items[0]
@@ -321,9 +321,10 @@ class Uniprot:
                 continue
             elif line.startswith("DE"):
                 alt_names: list[str] = []
-                ec_line = "DE            EC="
+                ec_line: str = "DE            EC="
                 ec_record: EC | None = None
-                contains = ""
+                contains: str | None = None
+                recommended_name: str | None = None
                 while line.startswith("DE"):
                     if line.startswith("DE   RecName:"):
                         recommended_name = line[:-2].split("=")[-1]
@@ -480,8 +481,13 @@ class Uniprot:
                             seq = seq_covering.split("=")
                             chain_ids: list[str] = seq[0].split("/")
                             all_chain_ids.extend(chain_ids)
-                            uniprot_resid_start: int = int(seq[1].split("-")[0])
-                            uniprot_resid_end: int = int(seq[1].split("-")[1])
+                            if len(seq) > 1 and "-" != seq[1]:
+                                uniprot_resid_start: int | str = int(
+                                    seq[1].split("-")[0]
+                                )
+                                uniprot_resid_end: int | str = int(seq[1].split("-")[1])
+                            else:
+                                uniprot_resid_start, uniprot_resid_end = "", ""
                             all_seq_ranges.append(
                                 SeqRange(uniprot_resid_start, uniprot_resid_end)
                             )
@@ -625,4 +631,4 @@ class Uniprot:
         # print(line)
 
         self._category_lines = content_dict
-        # print(self.category_lines)
+        # print(self.category_lines["FT"].feature_tables)
