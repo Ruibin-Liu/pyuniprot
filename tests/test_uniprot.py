@@ -95,6 +95,3 @@ def test_empty_resid():
         .seq_begin
         == ""
     ), "Q9NPA5 first PDB resids are not ''."
-
-
-test_empty_resid()

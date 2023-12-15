@@ -575,7 +575,7 @@ class Uniprot:
                     record_name: str = line[2:20].strip()
                     if record_name != "":
                         one_record: dict[str, str | int | SeqRange | None] = {}
-                        site_or_range: int | SeqRange | None = None
+                        site_or_range: str | int | SeqRange | None = None
                         seq_ids: list[str] = [
                             seq_id for seq_id in line[20:].strip().split("..")
                         ]
@@ -584,16 +584,24 @@ class Uniprot:
                             isoform = seq_ids[0].split(":")[0]
                         if len(seq_ids) == 1:
                             name: str = "at_site"
-                            site_or_range = int(seq_ids[0].split(":")[-1])
-
+                            try:
+                                site_or_range = int(seq_ids[0].split(":")[-1])
+                            except ValueError:
+                                site_or_range = seq_ids[0].split(":")[-1]
                         else:
                             name = "in_range"
                             seq_start: int | str = "?"
                             seq_end: int | str = "?"
                             if "?" not in seq_ids[0]:
-                                seq_start = int(seq_ids[0].split(":")[-1])
+                                try:
+                                    seq_start = int(seq_ids[0].split(":")[-1])
+                                except ValueError:
+                                    seq_start = seq_ids[0].split(":")[-1]
                             if "?" not in seq_ids[1]:
-                                seq_end = int(seq_ids[1].split(":")[-1])
+                                try:
+                                    seq_end = int(seq_ids[1].split(":")[-1])
+                                except ValueError:
+                                    seq_end = seq_ids[1].split(":")[-1]
                             site_or_range = SeqRange(seq_start, seq_end)
                         one_record[name] = site_or_range
                         one_record["isoform"] = isoform
