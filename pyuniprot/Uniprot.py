@@ -302,10 +302,16 @@ class Uniprot:
                 aa_length = int(items[2])
                 content_dict["ID"] = ID(entry_name, is_reviewed, aa_length)
             elif line.startswith("AC"):
-                items = line[2:-1].split()
-                primary_accession = items[0]
-                secondary_accessions = [i.strip(";") for i in items[1:]]
-                content_dict["AC"] = AC(primary_accession, secondary_accessions)
+                accessions: list[str] = []
+                while line.startswith("AC"):
+                    items = line[2:-1].split()
+                    accessions.extend(items)
+                    line = u_file.readline()
+                accessions = [i.strip(";") for i in accessions]
+                primary_accession = accessions[0]
+                accessions.remove(primary_accession)
+                content_dict["AC"] = AC(primary_accession, accessions)
+                continue
             elif line.startswith("DT"):
                 history_lines: list[tuple[date, str]] = []
                 date_format = "%d-%b-%Y"
