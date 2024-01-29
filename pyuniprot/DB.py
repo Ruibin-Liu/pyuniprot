@@ -1,6 +1,7 @@
 """
 Dataclasses for the DB records in a Uniprot txt file.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
