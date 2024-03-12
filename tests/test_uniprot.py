@@ -41,7 +41,7 @@ def test_get_properties():
         CFD, "test_files", f"{uniprot.uniprot_id}.txt"
     ), "Uniprot TXT file path not right when existed."
     try:
-        os.remove(f'{CFD}/{uniprot_id}.txt')
+        os.remove(f"{CFD}/{uniprot_id}.txt")
     except OSError:
         pass
 
