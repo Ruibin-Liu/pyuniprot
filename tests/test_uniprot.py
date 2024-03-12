@@ -40,7 +40,10 @@ def test_get_properties():
     assert uniprot.uniprot_txt_file == Path(
         CFD, "test_files", f"{uniprot.uniprot_id}.txt"
     ), "Uniprot TXT file path not right when existed."
-    os.remove("P36952.txt")
+    try:
+        os.remove(f'{CFD}/{uniprot_id}.txt')
+    except OSError:
+        pass
 
 
 def test_get_category_lines():
