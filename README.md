@@ -35,7 +35,7 @@ Currently, most information can only be accessed from the `category_lines` pytho
 They are (in my understanding):
 
 - `ID`: UniprotKB identifers
-- `AC`: accession numbers
+- `AC`: accession numbers (the example above)
 - `DT`: entry brief history
 - `DE`: protein names/descriptions
 - `GN`: gene name (by HGNC?)
