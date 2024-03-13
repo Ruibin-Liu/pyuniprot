@@ -615,9 +615,14 @@ class Uniprot:
                         record_name_like = line[2:20].strip()
                         one_record_lines: str = ""
                         while record_name_like == "":
-                            one_record_lines += line[19:-1]
+                            if "/" in line:
+                                one_record_lines += line[19:-1]
+                            else:
+                                one_record_lines += line[21:-1]
                             line = u_file.readline()
                             record_name_like = line[2:20].strip()
+                        # if record_name == 'VAR_SEQ':
+                        #     print(one_record_lines)
                         attrs: list[str] = one_record_lines.rstrip().split("  /")
                         for attr in attrs[1:]:
                             attr_name, attr_content = attr.strip().split('="')
