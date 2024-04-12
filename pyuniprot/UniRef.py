@@ -4,7 +4,40 @@ import io
 import json
 import os
 import urllib.request
+from dataclasses import dataclass
 from pathlib import Path
+
+
+@dataclass
+class Sequence:
+    """UniRef sequence data"""
+
+    value: str
+    length: int
+    mol_weight: float
+    crc64: str
+    md5: str
+
+    def __hash__(self):
+        return hash(self.value)
+
+
+@dataclass
+class UniRefRepresentativeMember:
+    """UniRef RepresentativeMember data"""
+
+    member_id_type: str
+    member_id: str
+    organism_name: str
+    organism_tax_id: str
+    sequence_length: int
+    protein_name: str
+    accessions: tuple
+    uniref90_id: str
+    uniref50_id: str
+    uniparc_id: str
+    seed: bool
+    sequence: Sequence
 
 
 class UniRef:
@@ -165,3 +198,89 @@ class UniRef:
             j_file = self.uniref_json_file
 
         self.uniref_json = json.load(j_file)
+
+    @property
+    def id(self) -> str:
+        """UniRef cluster id"""
+        return self.uniref_json["id"]
+
+    @property
+    def name(self) -> str:
+        """UniRef cluster name"""
+        return self.uniref_json["name"]
+
+    @property
+    def member_count(self) -> str:
+        """UniRef cluster memberCount"""
+        return self.uniref_json["memberCount"]
+
+    @property
+    def updated(self) -> str:
+        """UniRef cluster updated date"""
+        return self.uniref_json["updated"]
+
+    @property
+    def entry_type(self) -> str:
+        """UniRef cluster entryType"""
+        return self.uniref_json["entryType"]
+
+    @property
+    def common_taxon(self) -> str:
+        """UniRef cluster commonTaxon"""
+        return self.uniref_json["commonTaxon"]
+
+    @property
+    def seed_id(self) -> str:
+        """UniRef cluster seedId"""
+        return self.uniref_json["seedId"]
+
+    @property
+    def representative_member(self) -> UniRefRepresentativeMember:
+        """UniRef cluster representativeMember"""
+        return self._parse_representative_member(
+            self.uniref_json["representativeMember"]
+        )
+
+    @classmethod
+    def _parse_representative_member(cls, data: dict) -> UniRefRepresentativeMember:
+        """Parse the representativeMember data into a dataclass."""
+        member_id_type = data["memberIdType"]
+        member_id = data["memberId"]
+        organism_name = data["organismName"]
+        organism_tax_id = data["organismTaxId"]
+        sequence_length = data["sequenceLength"]
+        protein_name = data["proteinName"]
+        accessions = tuple(data["accessions"])
+        uniref90_id = data["uniref90Id"]
+        uniref50_id = data["uniref50Id"]
+        uniparc_id = data["uniparcId"]
+        seed = data["seed"]
+        sequence = UniRef._parse_sequence_data(data["sequence"])
+        return UniRefRepresentativeMember(
+            member_id_type,
+            member_id,
+            organism_name,
+            organism_tax_id,
+            sequence_length,
+            protein_name,
+            accessions,
+            uniref90_id,
+            uniref50_id,
+            uniparc_id,
+            seed,
+            sequence,
+        )
+
+    @classmethod
+    def _parse_sequence_data(cls, data: dict) -> Sequence:
+        value = data["value"]
+        length = data["length"]
+        mol_weight = data["molWeight"]
+        crc64 = data["crc64"]
+        md5 = data["md5"]
+        return Sequence(value, length, mol_weight, crc64, md5)
+
+    @property
+    def members(self) -> str:
+        """UniRef cluster members"""
+        return self.uniref_json["members"]
