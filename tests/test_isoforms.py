@@ -9,6 +9,7 @@ import pytest
 from pyuniprot.utils import AA, get_alt_resids, get_isoforms
 
 CFD = os.path.dirname(__file__)
+CWD = os.getcwd()
 
 
 def test_get_isoforms_wrong_id():
@@ -30,7 +31,7 @@ def test_get_isoforms_obsolete_id():
     with pytest.raises(ValueError, match=e_message):
         get_isoforms(uniprot_id)
     try:
-        os.remove(f"{CFD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id}.txt")
     except OSError:
         pass
 
@@ -43,7 +44,7 @@ def test_get_isoforms_no_iso():
     isoforms = get_isoforms(uniprot_id)
     assert isoforms == {"Q9H0H0": []}, "Q9H0H0 isoform is not empty."
     try:
-        os.remove(f"{CFD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id}.txt")
     except OSError:
         pass
 
@@ -67,7 +68,7 @@ def test_get_isoforms():
     isoforms = get_isoforms(uniprot_id)
     assert isoforms == expected, "Q92879 isoforms are wrong."
     try:
-        os.remove(f"{CFD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id}.txt")
     except OSError:
         pass
 
@@ -96,7 +97,7 @@ def test_get_alt_wrong_aa():
         get_alt_resids(uniprot_id, uniprot_resid, residue_type)
 
     try:
-        os.remove(f"{CFD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id}.txt")
     except OSError:
         pass
 
@@ -113,7 +114,8 @@ def test_get_alt_resids_oob():
     with pytest.raises(ValueError, match=e_message):
         get_alt_resids(uniprot_id, uniprot_resid, residue_type)
     try:
-        os.remove(f"{CFD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id[:-2]}.txt")
     except OSError:
         pass
 
@@ -139,15 +141,8 @@ def test_get_alt_resids():
         resids == expected
     ), f"{uniprot_id} {uniprot_resid} {residue_type} alt resids wrong"
     try:
-        os.remove(f"{CFD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id}.txt")
+        os.remove(f"{CWD}/{uniprot_id[:-2]}.txt")
+        os.remove(f"{CWD}/{uniprot_id[:-2]}-1.txt")
     except OSError:
         pass
-
-
-# def test():
-#     """
-#     Test the get_isoforms function when there is no isoform
-#     """
-#     uniprot_id = "P01116"
-#     isoforms = get_isoforms(uniprot_id)
-#     print(isoforms)
