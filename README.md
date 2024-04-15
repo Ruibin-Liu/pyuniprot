@@ -15,7 +15,7 @@ pip install pyuniprotkb
 
 ## Quick Start
 
-1. Read a local file `./P01116.txt` or download from UniprotKB and save to the current directory
+### 1. Read a local file or download from UniprotKB and save to the current directory
 
 ```python
 from pyuniprot import Uniprot
@@ -26,7 +26,7 @@ uniprot = Uniprot(
 print(uniprot.category_lines)  # It prints out all the information for a Uniprot ID that UniprotKB has for it.
 ```
 
-2. Access category information
+### 2. Access category information
 ```python
 print(uniprot.category_lines['AC'])
 # result: AC(primary_accession='P01116;', secondary_accessions=['A8K8Z5', 'B0LPF9', 'P01118', 'Q96D10'])
@@ -50,11 +50,11 @@ They are (in my understanding):
 - `FT`: protein feature tables
 - `SQ`: protein sequence
 
-3. Get the [UniRef](https://www.uniprot.org/help/uniref) data for `P36952` with 100% sequence identity. This data from UniProt provids reference clustered sets of sequences.
+### 3. Get the [UniRef](https://www.uniprot.org/help/uniref) data with certain sequence identity threshold. This data from UniProt provids reference clustered sets of sequences.
 ```python
 from pyuniprot import UniRef
 uniprot_id = "P36952"
-uniref = UniRef(uniprot_id, local_download_dir='./')
+uniref = UniRef(uniprot_id, local_download_dir='./') # default sequence identity threshold is 100
 print(uniref.members)  # We get the following result
 # [{"memberIdType": "UniParc", "memberId": "UPI0003EAE5A1","organismName": "Homo sapiens", "organismTaxId": 9606, "sequenceLength": 204,"proteinName": "serpin B5 isoform X1", "uniref90Id": "UniRef90_P36952"}]
 
