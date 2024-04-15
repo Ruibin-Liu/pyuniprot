@@ -1,5 +1,7 @@
 # pyuniprot
-`pyuniprot` parses a Uniprot txt file given a Uniprot ID into a python object. All information is made programmatically accessible when programming in python, the most used programming language in bioinformatics.
+`pyuniprot` parses a UniProt text file given a Uniprot ID into a python object. All information is made programmatically accessible when programming in python, the most used programming language in bioinformatics.
+
+The text file format of the UniProt different API formats was chosen because we could download the whole dataset as text and run local queries without worrying about internet connection or UniProt API limits.
 
 Through the python object, mostly a dictionary of different categories and each category is wrapped as a `dataclass` so that inside attributes are easy to access through dot notations. Convenient functions will be provided for some common usage.
 
@@ -47,6 +49,21 @@ They are (in my understanding):
 - `KW`: protein keywords
 - `FT`: protein feature tables
 - `SQ`: protein sequence
+
+3. Get the [UniRef](https://www.uniprot.org/help/uniref) data for `P36952` with 100% sequence identity. This data from UniProt provids reference clustered sets of sequences.
+```python
+from pyuniprot import UniRef
+uniprot_id = "P36952"
+uniref = UniRef(uniprot_id, local_download_dir='./')
+print(uniref.members)  # We get the following result
+# [{"memberIdType": "UniParc", "memberId": "UPI0003EAE5A1","organismName": "Homo sapiens", "organismTaxId": 9606, "sequenceLength": 204,"proteinName": "serpin B5 isoform X1", "uniref90Id": "UniRef90_P36952"}]
+
+# If we change the `thresh` keyword argument in the UniRef class to 90 or 50, we can get the data for clusters with 90 or 50 sequence identity.
+uniref_90 = UniRef(uniprot_id, thresh=90, local_download_dir='./')
+uniref_50 = UniRef(uniprot_id, thresh=50, local_download_dir='./')
+print(len(uniref_50.members)) # now we get the following number of members in the cluster
+# 218
+```
 
 ## Contributing
 1. Fork this repository

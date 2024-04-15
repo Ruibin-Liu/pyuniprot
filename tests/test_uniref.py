@@ -53,8 +53,11 @@ def test_get_json():
     Test json content
     """
     uniprot_id = "P36952"
-    uniprot = UniRef(uniprot_id, local_download_dir=Path(CFD, "test_files"))
-    json_file = Path(CFD, "test_files", f"UniRef100_{uniprot_id}.json")
+    thresh = 100
+    uniprot = UniRef(
+        uniprot_id, thresh=thresh, local_download_dir=Path(CFD, "test_files")
+    )
+    json_file = Path(CFD, "test_files", f"UniRef{thresh}_{uniprot_id}.json")
     with open(json_file, "r") as jf:
         expected = json.load(jf)
     assert uniprot.uniref_json == expected, "wrong json"
