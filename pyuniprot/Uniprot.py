@@ -9,7 +9,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Union
 
-from .DB import HGNC, PANTHER, PDB, SeqRange
+from .DB import CCDS, EMBL, GO, HGNC, PANTHER, PDB, PIR, Reactome, RefSeq, SeqRange
 
 
 @dataclass
@@ -158,6 +158,47 @@ class SQ:
 
 
 UNIPROT = Union[ID, AC, DT, DE, GN, OSCX, RNPCXATL, CC, DR, PE, KW, FT, SQ]
+
+GO_TYPE = {
+    "C": "Cellular Component",
+    "F": "Molecular Fucntion",
+    "P": "Biological Process",
+}
+GO_SOURCE = {
+    # experimental evidence codess
+    "EXP": "Experiment",  # usually peer-reviewed publication
+    "IDA": "Direct Assay",
+    "IPI": "Physical Interaction",
+    "IMP": "Mutant Phenotype",
+    "IGI": "Genetic Interaction",
+    "IEP": "Epression Pattern",
+    "HTP": "High Throughput Pxperiment",
+    "HDA": "High Throughput Direct Assay",
+    "HMP": "High Throughput Mutant Phenotype",
+    "HGI": "High Throughput Genetic Interaction",
+    "HEP": "High Throughputf Expression Pattern",
+    # phylogenetically-inferred annotations
+    "IBA": "Biological aspect of Ancestor",
+    "IBD": "Biological aspect of Descendant",
+    "IKR": "Key Residues",
+    "IRD": "Rapid Divergence",
+    # computational analysis evidence codes
+    "ISS": "Sequence or structural Similarity",
+    "ISO": "Sequence Orthology",
+    "ISA": "Sequence Alignment",
+    "ISM": "Sequence Model",
+    "IGC": "Genomic Context",
+    "RCA": "Reviewed Computational Analysis",
+    # author statement evidence codes
+    "TAS": "Traceable Author Statement",
+    "NAS": "Non-traceable Author Statement",
+    # curator statement evidence codes
+    "IC": "Curator",
+    "ND": "No biological Data available",
+    # electronic annotation evidence code
+    "IEA": "Electronic Annotation",
+}
+"""From https://geneontology.org/docs/guide-go-evidence-codes"""
 
 
 class Uniprot:
@@ -556,6 +597,80 @@ class Uniprot:
                                 subfamily_occurrence,
                             )
                         )
+                    elif db_name == "EMBL":
+                        nucleotide_sequence_id: str = db_content[0].strip()
+                        protein_sequence_id: str = db_content[1].strip()
+                        molecule_type: str = db_content[2].strip()
+                        status: str = db_content[3].strip()
+                        db_reference[db_name].append(
+                            EMBL(
+                                nucleotide_sequence_id,
+                                protein_sequence_id,
+                                molecule_type,
+                                status,
+                            )
+                        )
+                    elif db_name == "CCDS":
+                        ccds_id: str = db_content[0].strip()
+                        isoform: str = db_content[1].split("[")[-1].strip("]")
+                        db_reference[db_name].append(
+                            CCDS(
+                                ccds_id,
+                                isoform,
+                            )
+                        )
+                    elif db_name == "PIR":
+                        uid: str = db_content[0].strip()
+                        entry: str = db_content[1].strip()
+                        db_reference[db_name].append(
+                            PIR(
+                                uid,
+                                entry,
+                            )
+                        )
+                    elif db_name == "GO":
+                        accession_number: str = db_content[0].split(":")[-1]
+                        aspect_term = db_content[1].strip().split(":")
+                        aspect: str = aspect_term[0]
+                        aspect = GO_TYPE[aspect]
+                        term: str = aspect_term[1]
+                        infer = db_content[2].strip().split(":")
+                        inferred_from: str = infer[0]
+                        inferred_from = GO_SOURCE[inferred_from]
+                        source: str = infer[1]
+                        db_reference[db_name].append(
+                            GO(
+                                accession_number,
+                                aspect,
+                                term,
+                                inferred_from,
+                                source,
+                            )
+                        )
+                    elif db_name == "Reactome":
+                        id: str = db_content[0].strip()
+                        pathway: str = db_content[1].strip()
+                        db_reference[db_name].append(
+                            Reactome(
+                                id,
+                                pathway,
+                            )
+                        )
+                    elif db_name == "RefSeq":
+                        protein_sequence_id = db_content[0].strip()
+                        items = db_content[1].strip().split()
+                        nucleotide_sequence_id = items[0]
+                        if len(items) > 1:
+                            isoform = items[1].strip("[").strip("]")
+                        else:
+                            isoform = ""
+                        db_reference[db_name].append(
+                            RefSeq(
+                                protein_sequence_id,
+                                nucleotide_sequence_id,
+                                isoform,
+                            )
+                        )
                     else:
                         db_reference[db_name].append(tuple(db_content))
                     line = u_file.readline()
@@ -585,7 +700,7 @@ class Uniprot:
                         seq_ids: list[str] = [
                             seq_id for seq_id in line[20:].strip().split("..")
                         ]
-                        isoform: str = self.uniprot_id
+                        isoform = self.uniprot_id
                         if ":" in seq_ids[0]:
                             isoform = seq_ids[0].split(":")[0]
                         if len(seq_ids) == 1:
@@ -621,8 +736,6 @@ class Uniprot:
                                 one_record_lines += line[21:-1]
                             line = u_file.readline()
                             record_name_like = line[2:20].strip()
-                        # if record_name == 'VAR_SEQ':
-                        #     print(one_record_lines)
                         attrs: list[str] = one_record_lines.rstrip().split("  /")
                         for attr in attrs[1:]:
                             attr_name, attr_content = attr.strip().split('="')
@@ -647,7 +760,5 @@ class Uniprot:
                 break
 
             line = u_file.readline()
-        # print(line)
 
         self._category_lines = content_dict
-        # print(self.category_lines["FT"].feature_tables)
