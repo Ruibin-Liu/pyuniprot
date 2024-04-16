@@ -53,7 +53,6 @@ def test_get_category_lines():
     uniprot = Uniprot(
         uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
     )
-    uniprot._get_category_lines()
     category_lines = uniprot.category_lines
     assert (
         category_lines["SQ"].length == 393
@@ -66,7 +65,6 @@ def test_empty_file():
     uniprot = Uniprot(
         uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
     )
-    uniprot._get_category_lines()
     category_lines = uniprot.category_lines
     assert category_lines == {}, "P04637 sequence length in SQ not read as integer 393."
 
@@ -77,7 +75,6 @@ def test_no_panther():
     uniprot = Uniprot(
         uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
     )
-    uniprot._get_category_lines()
     category_lines = uniprot.category_lines
     assert (
         len(category_lines["DR"].database_references["PANTHER"]) == 0
@@ -90,7 +87,6 @@ def test_empty_resid():
     uniprot = Uniprot(
         uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
     )
-    uniprot._get_category_lines()
     category_lines = uniprot.category_lines
     assert (
         category_lines["DR"]
@@ -107,7 +103,6 @@ def test_dr_records():
     uniprot = Uniprot(
         uniprot_id, save_txt=True, local_download_dir=Path(CFD, "test_files")
     )
-    uniprot._get_category_lines()
     category_lines = uniprot.category_lines
     dr = category_lines["DR"].database_references
     assert dr["PDB"][0].pdb_id == "1A1U", "P04637 first PDB not 1A1U."
