@@ -100,6 +100,15 @@ print(gos[0].accession_number)  # 0005813
 ```
 More to come! Make an issue if you need a specific one DR type.
 
+A useful Pandas knowledge: we can directly turn a list of `dataclass` objects into a Pandas DataFrame. For example:
+```python
+#... continuing the above script
+import pandas as pd
+df = pd.DataFrame(pdbs)
+# We can then thus process the PDB list or just save it to a file.
+df.to_csv('P04637_PDBs.csv', mode='w', index=False) # The csv file contains all the PDBs for P04637
+```
+
 ### 4. Get the [UniRef](https://www.uniprot.org/help/uniref) data with certain sequence identity threshold. This data from UniProt provids reference clustered sets of sequences.
 ```python
 from pyuniprot import UniRef

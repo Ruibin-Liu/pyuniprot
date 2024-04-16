@@ -165,7 +165,7 @@ GO_TYPE = {
     "P": "Biological Process",
 }
 GO_SOURCE = {
-    # experimental evidence codess
+    # experimental evidence codes
     "EXP": "Experiment",  # usually peer-reviewed publication
     "IDA": "Direct Assay",
     "IPI": "Physical Interaction",
