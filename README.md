@@ -50,7 +50,57 @@ They are (in my understanding):
 - `FT`: protein feature tables
 - `SQ`: protein sequence
 
-### 3. Get the [UniRef](https://www.uniprot.org/help/uniref) data with certain sequence identity threshold. This data from UniProt provids reference clustered sets of sequences.
+### 3. Get database cross references information through dataclasses for `DR`.
+```python
+from pyuniprot import Uniprot
+uniprot_id = "P04637"
+uniprot = Uniprot(uniprot_id, save_txt=True, local_download_dir='./')
+dr = uniprot.category_lines["DR"].database_references
+# 1. Get PDB records for the protein
+pdbs = dr['PDB']
+print(len(pdbs))    # total number of PDB records for P04637, which is 268
+print(pdbs[0])      # first PDB record: PDB(pdb_id='1A1U', experiment_method='NMR', resolution='-', resolution_unit='', chain_ids=['A', 'C'], uniprot_res_range=[SeqRange(seq_begin=324, seq_end=358)])
+print(pdbs[0].pdb_id)   # access the pdb_id attribute in the PDB dataclass; here the result is 1A1U
+
+# 2. Get EMBL records
+embls = dr['EMBL']
+print(len(embls))   # 85
+print(embls[0])     # EMBL(nucleotide_sequence_id='X02469', protein_sequence_id='CAA26306.1', molecule_type='-', status='mRNA')
+print(embls[0].nucleotide_sequence_id)      # X02469
+
+# 3. Get CCDS records
+ccds = dr['CCDS']
+print(len(ccds))   # 9
+print(ccds[0])     # CCDS(ccds_id='CCDS11118.1', isoform='P04637-1')
+print(ccds[0].ccds_id)      # CCDS11118.1
+
+# 4. Get PIR record
+pir = dr['PIR']
+print(len(pir))   # 1 (should be only one)
+print(pir[0])     # PIR(uid='A25224', entry='DNHU53')
+print(pir[0].uid)      # A25224
+
+# 5. Get RefSeq records
+refseqs = dr['RefSeq']
+print(len(refseqs))   # 15
+print(refseqs[0])     # RefSeq(protein_sequence_id='NP_000537.3', nucleotide_sequence_id='NM_000546.5.', isoform='P04637-1')
+print(refseqs[0].protein_sequence_id)      # NP_000537.3
+
+# 6. Get Reactome records
+reactomes = dr['Reactome']
+print(len(reactomes))   # 44
+print(reactomes[0])     # Reactome(id='R-HSA-111448', pathway='Activation of NOXA and translocation to mitochondria')
+print(reactomes[0].id)  # R-HSA-111448
+
+# 7. Get GO records
+gos = dr['GO']
+print(len(gos))   # 176
+print(gos[0])     # GO(accession_number='0005813', aspect='Cellular Component', term='centrosome', inferred_from='Direct Assay', source='UniProtKB')
+print(gos[0].accession_number)  # 0005813
+```
+More to come! Make an issue if you need a specific one DR type.
+
+### 4. Get the [UniRef](https://www.uniprot.org/help/uniref) data with certain sequence identity threshold. This data from UniProt provids reference clustered sets of sequences.
 ```python
 from pyuniprot import UniRef
 uniprot_id = "P36952"
