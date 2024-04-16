@@ -98,7 +98,7 @@ def test_empty_resid():
         .uniprot_res_range[0]
         .seq_begin
         == ""
-    ), "Q9NPA5 first PDB resids are not ''."
+    ), "Q9NPA5 first PDB resid is not ''."
 
 
 def test_dr_records():
@@ -120,10 +120,10 @@ def test_dr_records():
     assert dr["PIR"][0].uid == "A25224", "P04637 PIR uid not A25224."
     assert (
         dr["GO"][-1].accession_number == "0016032"
-    ), "P04637 GO accession_number not 0016032."
+    ), "P04637 last GO accession_number not 0016032."
     assert (
         dr["Reactome"][-1].id == "R-HSA-983231"
-    ), "P04637 Reactome id not R-HSA-983231."
+    ), "P04637 last Reactome id not R-HSA-983231."
     assert (
         dr["RefSeq"][-1].protein_sequence_id == "NP_001263690.1"
-    ), "P04637 RefSeq protein_sequence_id not NP_001263690.1."
+    ), "P04637 last RefSeq protein_sequence_id not NP_001263690.1."
