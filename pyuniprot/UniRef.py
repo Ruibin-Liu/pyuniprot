@@ -170,9 +170,9 @@ class UniRef:
         if self.uniref_json is None:
             self._uniref_json = content
         else:
-            raise AttributeError("category_lines already set.")
+            raise AttributeError("uniref_json already set.")
 
-    def _get_uniref_json(self):
+    def _get_uniref_json(self) -> None:
         """Get json content"""
         if self.uniref_json_file is None:
             try:

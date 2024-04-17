@@ -1,3 +1,5 @@
+"""Legacy code to process txt file"""
+
 from __future__ import annotations
 
 import io
