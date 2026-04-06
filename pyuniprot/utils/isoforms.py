@@ -1,5 +1,4 @@
-"""Find all isoforms given a Uniprot ID.
-"""
+"""Find all isoforms given a Uniprot ID."""
 
 from __future__ import annotations
 
